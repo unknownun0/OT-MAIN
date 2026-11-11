@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Earl John Gomez – Onetap.ph</title>
+<meta name="theme-color" content="#121212">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#121212;--sheet:#1e1e1e;--circle:#2e2e2e;--text:#f5f5f5;--muted:#7d7d7d;--line:#2c2c2c;--red:#d3202a;--c1:#e42b2b;--c2:#a50f16;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:radial-gradient(ellipse at 50% 0,#3a3a3a,#111 70%) fixed;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;justify-content:center}
+.phone{width:100%;max-width:430px;min-height:100vh;background:var(--bg);padding:18px 16px calc(110px + env(safe-area-inset-bottom,0px))}
+@media(min-width:480px){.phone{margin:16px 0;min-height:auto;border-radius:36px;border:1px solid #2a2a2a;box-shadow:0 30px 80px rgba(0,0,0,.6)}}
+.top{display:flex;align-items:center;gap:12px;padding:6px 4px 18px}
+.top img{width:46px;height:46px;border-radius:50%;object-fit:cover;background:var(--circle)}
+.top h1{flex:1;margin:0;font-size:21px;font-weight:700}
+.iconbtn{width:42px;height:42px;border-radius:50%;border:0;background:transparent;color:var(--text);display:grid;place-items:center;cursor:pointer;position:relative}
+.dot{position:absolute;top:8px;right:9px;width:8px;height:8px;border-radius:50%;background:#ff3b30}
+svg.s{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card{position:relative;overflow:hidden;border-radius:18px;height:208px;padding:18px;background:radial-gradient(130% 150% at 0% 110%,rgba(0,0,0,.28) 0 38%,transparent 39%),linear-gradient(135deg,var(--c1),var(--c2));display:flex;flex-direction:column;justify-content:space-between}
+.card::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;border:60px solid rgba(255,255,255,.06);right:-190px;top:-230px}
+.card::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(0,0,0,.12);left:90px;top:-60px;transform:scaleX(1.6)}
+.card>*{position:relative;z-index:1}
+.row1{display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:24px;font-weight:700;font-style:italic;letter-spacing:-.02em}
+.pill{border:0;background:rgba(255,255,255,.2);color:#fff;font:500 12px Inter,sans-serif;padding:7px 11px;border-radius:8px;display:flex;gap:6px;align-items:center;cursor:pointer;backdrop-filter:blur(4px)}
+.pill svg.s{width:15px;height:15px}
+.chip{width:36px;height:30px;border-radius:6px;border:2px solid rgba(255,255,255,.4);background:linear-gradient(90deg,transparent 45%,rgba(255,255,255,.35) 45% 55%,transparent 55%),linear-gradient(0deg,transparent 40%,rgba(255,255,255,.35) 40% 60%,transparent 60%)}
+.row2{display:flex;justify-content:space-between;align-items:flex-end}
+.row2 small{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:4px}
+.row2 b{font-size:18px;font-weight:600}
+.row2 div:last-child{text-align:right}
+.cust{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:6px 0 4px;padding:14px;border-radius:14px;border:1px solid #3a3a3a;background:transparent;color:#fff;font:600 14px Inter,sans-serif;cursor:pointer}
+.cust svg.s{width:18px;height:18px}
+.cust:active{background:var(--circle)}
+.card[data-pat=rings],.card[data-pat=lines],.card[data-pat=dots],.card[data-pat=plain],.card[data-pat=image]{background:linear-gradient(135deg,var(--c1),var(--c2))}
+.card[data-pat=rings]::after{background:none;border:40px solid rgba(255,255,255,.07);width:260px;height:260px;left:-90px;top:auto;bottom:-150px;transform:none}
+.card[data-pat=lines]::before,.card[data-pat=dots]::before{width:100%;height:100%;border:0;border-radius:0;right:0;top:0}
+.card[data-pat=lines]::before{background:repeating-linear-gradient(135deg,rgba(255,255,255,.09) 0 1px,transparent 1px 14px)}
+.card[data-pat=dots]::before{background:radial-gradient(rgba(255,255,255,.16) 1.2px,transparent 1.6px) 0 0/16px 16px}
+.card[data-pat=lines]::after,.card[data-pat=dots]::after,.card[data-pat=plain]::before,.card[data-pat=plain]::after,.card[data-pat=image]::before,.card[data-pat=image]::after{display:none}
+.card[data-pat=image]{background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.5)),var(--img) center/cover}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:flex-end;justify-content:center;z-index:20}
+.ov.on{display:flex}
+.pn{position:relative;width:100%;max-width:430px;background:#1e1e1e;border-radius:28px 28px 0 0;padding:28px 20px calc(20px + env(safe-area-inset-bottom,0px));max-height:88vh;overflow:auto}
+.pn::before{content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);width:34px;height:5px;border-radius:3px;background:#3a3a3a}
+.pn h3{margin:0 0 4px;font-size:20px}
+.wrap{display:flex;flex-wrap:wrap;gap:10px}
+.sw{width:42px;height:42px;border-radius:50%;border:2px solid transparent;outline:2px solid transparent;cursor:pointer;padding:0}
+.sw.on{border-color:#1e1e1e;outline-color:#fff}
+.ch{padding:9px 14px;border-radius:12px;background:var(--circle);color:#fff;border:0;font:500 13px Inter,sans-serif;cursor:pointer}
+.ch.on{background:#fff;color:#111}
+.cp{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.cp input{width:44px;height:36px;border:0;background:none;padding:0}
+.pn .acts{display:flex;gap:10px;margin-top:22px}
+.pn .acts button{flex:1;border:0;border-radius:14px;padding:14px;font:600 14px Inter,sans-serif;cursor:pointer}
+.sheet{position:relative;margin-top:16px;background:var(--sheet);border-radius:28px;padding:30px 20px 12px}
+.sheet::before{content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);width:34px;height:5px;border-radius:3px;background:#3a3a3a}
+.head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.head h2{margin:0;font-size:22px;font-weight:600}
+.head span{color:#666;font-weight:600;font-size:14px}
+.lbl{margin:20px 0 4px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.item{display:flex;align-items:center;gap:14px;padding:12px 0;color:var(--text);text-decoration:none;position:relative}
+.item+.item::before{content:"";position:absolute;top:0;left:62px;right:0;height:1px;background:var(--line)}
+.ic{width:48px;height:48px;border-radius:50%;background:var(--circle);display:grid;place-items:center;flex:none}
+.ic svg.f{width:22px;height:22px;fill:#fff}
+.mid{flex:1;min-width:0}
+.mid b{display:block;font-weight:500;font-size:16px;overflow:hidden;text-overflow:ellipsis}
+.mid small{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow:hidden;text-overflow:ellipsis}
+.act{font-size:13px;font-weight:600;color:var(--red)}
+.item:active{opacity:.6}
+.banner{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:20px;margin:22px 0 10px;background:var(--circle)}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#161616;border-top:1px solid #262626;border-radius:24px 24px 0 0;display:flex;justify-content:space-around;align-items:center;padding:12px 10px calc(14px + env(safe-area-inset-bottom,0px));z-index:5}
+.nav a,.nav button.n{background:none;border:0;color:var(--text);text-decoration:none;font:500 11px Inter,sans-serif;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;width:56px}
+.nav .m{color:var(--muted)}
+.nav .fab{width:54px;height:54px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 6px 20px rgba(211,32,42,.5);border:0;color:#fff;cursor:pointer;margin-top:-6px}
+.nav .fab svg.s{width:26px;height:26px}
+.toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#f5f5f5;color:#111;padding:10px 16px;border-radius:14px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;max-width:90%;text-align:center;z-index:9}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="top">
+    <img id="avatar" alt="Profile photo">
+    <h1>Hi, I'm Earl John!</h1>
+    <button class="iconbtn" id="shareBtn" aria-label="Share"><svg class="s" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span class="dot"></span></button>
+  </div>
+
+  <div class="card">
+    <div class="row1"><span class="brand" id="brand"></span>
+      </div>
+    <div class="chip"></div>
+    <div class="row2"><div><small>Name</small><b id="name"></b></div><div><small>Position</small><b id="pos"></b></div></div>
+  </div>
+
+  <div class="sheet">
+    <div class="head"><h2>Contact</h2><span>Tap to connect</span></div>
+    <div class="lbl">Phone</div><div id="phones"></div>
+    <div class="lbl">Email</div><div id="emails"></div>
+    <div class="lbl">Social media</div><div id="socs"></div>
+    <img class="banner" id="banner" alt="Banner">
+    <button class="cust" id="palBtn"><svg class="s" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="15.5" cy="10" r="1"/></svg>Customize card</button>
+  </div>
+</div>
+
+<nav class="nav">
+  <a href="#" id="nCall"><svg class="s" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="m">Call</span></a>
+  <a href="#" id="nChat" target="_blank" rel="noopener"><svg class="s" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.800 7L3 21l2-5.500A8 8 0 1 1 21 12z"/></svg><span class="m">Chat</span></a>
+  <button class="fab" id="fabSave" aria-label="Save contact"><svg class="s" viewBox="0 0 24 24"><rect x="2.500" y="5" width="19" height="13" rx="2.500"/><path d="M2.500 10h19M15 21h5M17.500 18.500v5"/></svg></button>
+  <a href="#" id="nMail"><svg class="s" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><span class="m">Email</span></a>
+  <button class="n" id="nShare"><svg class="s" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.500"/><circle cx="18" cy="6" r="2.500"/><circle cx="18" cy="18" r="2.500"/><path d="m8.200 10.800 7.600-3.600M8.200 13.200l7.600 3.600"/></svg><span class="m">Share</span></button>
+</nav>
+<div class="ov" id="ov"><div class="pn">
+  <h3>Customize card</h3>
+  <div class="lbl">Color</div><div class="wrap" id="sw"></div>
+  <div class="lbl">Pattern</div><div class="wrap" id="pt"></div>
+  <div class="lbl">Your own colors</div>
+  <div class="wrap"><label class="cp"><input type="color" id="c1">Color 1</label><label class="cp"><input type="color" id="c2">Color 2</label></div>
+  <div class="lbl">Photo background</div>
+  <div class="wrap"><button class="ch" id="upBtn">Upload photo</button><button class="ch" id="noImg">Remove photo</button></div>
+  <input type="file" id="upF" accept="image/*" hidden>
+  <div class="acts"><button id="rst" style="background:var(--circle);color:#fff">Reset</button><button id="dn" style="background:var(--red);color:#fff">Done</button></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const ph=(bg,t,sz)=>"data:image/svg+xml;utf8,"+encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'><rect width='160' height='100' fill='${bg}'/><text x='80' y='${sz>20?62:56}' font-size='${sz}' text-anchor='middle' fill='#8a8a8a' font-family='sans-serif'>${t}</text></svg>`);
+const D={
+  name:"Earl John Gomez",company:"Onetap.ph",position:"Owner",
+  avatar:ph("#2e2e2e","EJ",40),banner:ph("#262626","Your image here",14),
+  phones:[{label:"Mobile / WhatsApp",value:"+639624238760"}],
+  emails:[{label:"Gmail",value:"earljohngomez66@gmail.com"},{label:"Onetap",value:"onetaplpcph@gmail.com"}],
+  socials:[
+    {type:"facebook",sub:"itsm3earljohn",url:"https://www.facebook.com/itsm3earljohn/"},
+    {type:"fbpage",sub:"Onetap.ph Page",url:"https://www.facebook.com/onetap.nfc.ph"},
+    {type:"instagram",sub:"@onetap_earl",url:"https://www.instagram.com/onetap_earl/"},
+    {type:"whatsapp",sub:"+63 962 423 8760",url:"https://wa.me/639624238760"},
+    {type:"tiktok",sub:"@lifeofear1",url:"https://www.tiktok.com/@lifeofear1"}
+  ]
+};
+const SOC={
+  whatsapp:{n:"WhatsApp",p:"M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.3z"},
+  facebook:{n:"Facebook",p:"M13.500 22v-8.200h2.800l.5-3.300h-3.300V8.400c0-.9.400-1.700 1.800-1.700h1.600V3.800S15.600 3.600 14.300 3.600c-2.800 0-4.400 1.600-4.400 4.500v2.400H7.100v3.300h2.800V22z"},
+  instagram:{n:"Instagram",p:"M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.500a4.500 4.500 0 1 1 0 9 4.500 4.500 0 0 1 0-9zm0 2a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5zm5.300-3.100a1.100 1.100 0 1 1 0 2.200 1.100 1.100 0 0 1 0-2.200z"},
+  tiktok:{n:"TikTok",p:"M16.600 2h-3.200v13.200a2.800 2.800 0 1 1-2-2.700V9.200a6 6 0 1 0 5.200 5.900V8.500a7.500 7.500 0 0 0 4.400 1.400V6.700A4.400 4.400 0 0 1 16.600 2z"}
+};
+SOC.fbpage={...SOC.facebook,n:"Facebook Page"};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("on"),2600)}
+
+$("#avatar").src=D.avatar;$("#banner").src=D.banner;
+$("#brand").textContent=D.company;$("#name").textContent=D.name;$("#pos").textContent=D.position;
+const phoneSvg='<svg class="s" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>';
+const mailSvg='<svg class="s" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>';
+$("#phones").innerHTML=D.phones.map(p=>`<a class="item" href="tel:${esc(p.value)}"><span class="ic">${phoneSvg}</span><span class="mid"><b>${esc(p.label)}</b><small>${esc(p.value)}</small></span><span class="act">Call</span></a>`).join("");
+$("#emails").innerHTML=D.emails.map(p=>`<a class="item" href="mailto:${esc(p.value)}"><span class="ic">${mailSvg}</span><span class="mid"><b>${esc(p.label)}</b><small>${esc(p.value)}</small></span><span class="act">Send</span></a>`).join("");
+$("#socs").innerHTML=D.socials.map(s=>`<a class="item" href="${esc(s.url)}" target="_blank" rel="noopener"><span class="ic"><svg class="f" viewBox="0 0 24 24"><path d="${SOC[s.type].p}"/></svg></span><span class="mid"><b>${SOC[s.type].n}</b><small>${esc(s.sub)}</small></span><span class="act">Open</span></a>`).join("");
+$("#nCall").href="tel:"+D.phones[0].value;
+$("#nChat").href=D.socials.find(s=>s.type==="whatsapp").url;
+$("#nMail").href="mailto:"+D.emails[0].value;
+
+function vcard(){
+  const n=D.name.trim().split(/\s+/),last=n.length>1?n.pop():"",first=n.join(" ");
+  const v=["BEGIN:VCARD","VERSION:3.0",`N:${last};${first};;;`,`FN:${D.name}`,`ORG:${D.company}`,`TITLE:${D.position}`];
+  D.phones.forEach(p=>v.push(`TEL;TYPE=CELL:${p.value}`));
+  D.emails.forEach(p=>v.push(`EMAIL;TYPE=INTERNET:${p.value}`));
+  D.socials.forEach(s=>v.push(`URL;TYPE=${SOC[s.type].n}:${s.url}`));
+  v.push("END:VCARD");return v.join("\r\n");
+}
+async function saveContact(){
+  const text=vcard(),fn=D.name.replace(/\s+/g,"_")+".vcf";
+  const file=new File([text],fn,{type:"text/vcard"});
+  try{ if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:D.name});return} }catch(e){if(e.name==="AbortError")return}
+  try{const a=document.createElement("a");a.href=URL.createObjectURL(file);a.download=fn;document.body.appendChild(a);a.click();a.remove();toast("Opening… allow it to add to your contacts");return}catch(e){}
+  try{await navigator.clipboard.writeText(text);toast("Contact copied")}catch(e){toast("Save not supported here")}
+}
+async function shareLink(){
+  try{ if(navigator.share){await navigator.share({title:D.name,url:location.href});return} await navigator.clipboard.writeText(location.href);toast("Link copied") }catch(e){}
+}
+$("#fabSave").onclick=saveContact;
+$("#shareBtn").onclick=$("#nShare").onclick=shareLink;
+
+/* ===== card customizer ===== */
+const THEMES=[["Red","#e42b2b","#a50f16","#d3202a"],["Black","#2c2c2c","#050505","#d3202a"],["Blue","#3b82f6","#1e3a8a","#3b82f6"],["Emerald","#22c55e","#065f46","#22c55e"],["Gold","#e7b84b","#8a5a10","#e7b84b"],["Violet","#8b5cf6","#4c1d95","#8b5cf6"],["Rose","#fb5c8d","#9f1239","#fb5c8d"],["Orange","#fb923c","#c2410c","#fb923c"]];
+const PATS=[["waves","Waves"],["rings","Rings"],["lines","Lines"],["dots","Dots"],["plain","Plain"]];
+const DEFS={c1:THEMES[0][1],c2:THEMES[0][2],acc:THEMES[0][3],pat:"waves",img:""};
+let S={...DEFS};
+try{Object.assign(S,JSON.parse(localStorage.getItem("cardStyle")||"{}"))}catch(e){}
+function build(){
+  $("#sw").innerHTML=THEMES.map((t,i)=>`<button class="sw${S.c1===t[1]&&S.c2===t[2]?" on":""}" data-t="${i}" aria-label="${t[0]}" style="background:linear-gradient(135deg,${t[1]},${t[2]})"></button>`).join("");
+  $("#pt").innerHTML=PATS.map(p=>`<button class="ch${S.pat===p[0]?" on":""}" data-p="${p[0]}">${p[1]}</button>`).join("");
+  $("#c1").value=S.c1;$("#c2").value=S.c2;
+}
+function apply(){
+  const r=document.documentElement.style;
+  r.setProperty("--c1",S.c1);r.setProperty("--c2",S.c2);r.setProperty("--red",S.acc);
+  if(S.img)r.setProperty("--img",`url("${S.img}")`);
+  $(".card").dataset.pat=(S.pat==="image"&&!S.img)?"waves":S.pat;
+  try{localStorage.setItem("cardStyle",JSON.stringify(S))}catch(e){try{localStorage.setItem("cardStyle",JSON.stringify({...S,img:""}))}catch(_){}}
+  build();
+}
+$("#palBtn").onclick=()=>$("#ov").classList.add("on");
+$("#dn").onclick=()=>$("#ov").classList.remove("on");
+$("#ov").onclick=e=>{if(e.target.id==="ov")$("#ov").classList.remove("on")};
+$("#sw").onclick=e=>{const i=e.target.dataset.t;if(i==null)return;const t=THEMES[i];S.c1=t[1];S.c2=t[2];S.acc=t[3];if(S.pat==="image")S.pat="waves";apply()};
+$("#pt").onclick=e=>{const p=e.target.dataset.p;if(!p)return;S.pat=p;apply()};
+$("#c1").oninput=e=>{S.c1=e.target.value;S.acc=S.c1;if(S.pat==="image")S.pat="waves";apply()};
+$("#c2").oninput=e=>{S.c2=e.target.value;apply()};
+$("#upBtn").onclick=()=>$("#upF").click();
+$("#upF").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const k=Math.min(1,700/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=i.width*k;c.height=i.height*k;c.getContext("2d").drawImage(i,0,0,c.width,c.height);S.img=c.toDataURL("image/jpeg",.8);S.pat="image";apply()};i.src=r.result};r.readAsDataURL(f)};
+$("#noImg").onclick=()=>{S.img="";if(S.pat==="image")S.pat="waves";apply()};
+$("#rst").onclick=()=>{S={...DEFS};apply()};
+apply();
+</script>
+</body>
+</html>
