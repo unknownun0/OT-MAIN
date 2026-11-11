@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#cfcfcf">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
-:root{--text:#fff;--muted:#a3a3a3;--line:rgba(255,255,255,.1);--g1:#ff9a5a;--g2:#ec6b8e;--g3:#9d9be8;color-scheme:dark;box-sizing:border-box}
+:root{--text:#fff;--muted:#bdbdbd;--line:rgba(255,255,255,.1);color-scheme:dark;box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:radial-gradient(ellipse at 50% 0,#f4f4f4,#bdbdbd);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);display:flex;justify-content:center;min-height:100vh}
@@ -27,7 +27,7 @@ svg.s{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 h1{margin:0;font-size:52px;line-height:.98;font-weight:600;letter-spacing:-.04em}
 .qa{display:flex;gap:12px;padding-bottom:6px}
 .qa a{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;text-decoration:none}
-.glow{background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));box-shadow:0 0 22px color-mix(in srgb,var(--g2) 60%,transparent);color:#fff}
+.glow{background:#111;box-shadow:0 0 22px rgba(255,255,255,.3);color:#fff}
 .wht{background:#fff;color:#000}
 .sub{margin:8px 0 0;color:var(--muted);font-size:17px}
 .bio{margin:14px 0 0;font-size:19px;line-height:1.3;letter-spacing:-.01em;color:#f0f0f0}
@@ -35,8 +35,8 @@ h1{margin:0;font-size:52px;line-height:.98;font-weight:600;letter-spacing:-.04em
 .stats b{display:block;font-size:30px;font-weight:600;letter-spacing:-.02em}
 .stats span{color:var(--muted);font-size:17px}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
-.chips a{padding:8px 14px;border-radius:20px;background:rgba(255,255,255,.1);color:#d4d4d4;text-decoration:none;font-size:14px}
-.go{display:block;width:100%;height:58px;border:0;border-radius:16px;font:600 19px Inter,sans-serif;color:#fff;cursor:pointer;background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));text-shadow:0 1px 2px rgba(0,0,0,.2)}
+.chips a{padding:8px 14px;border-radius:20px;background:rgba(255,255,255,.12);color:#fff;text-decoration:none;font-size:14px}
+.go{display:block;width:100%;height:58px;border:1px solid rgba(255,255,255,.25);border-radius:16px;font:600 19px Inter,sans-serif;color:#fff;cursor:pointer;background:#111;text-shadow:0 1px 2px rgba(0,0,0,.2)}
 .go:active{transform:scale(.98)}
 .hint{display:flex;flex-direction:column;align-items:center;margin-top:16px;color:var(--muted);font-size:13px;gap:2px}
 .hint svg.s{width:20px;height:20px;animation:bob 1.4s ease-in-out infinite}
@@ -50,21 +50,9 @@ h1{margin:0;font-size:52px;line-height:.98;font-weight:600;letter-spacing:-.04em
 .mid{flex:1;min-width:0}
 .mid b{display:block;font-weight:500;font-size:16px}
 .mid small{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow:hidden;text-overflow:ellipsis}
-.act{font-size:13px;font-weight:600;background:linear-gradient(90deg,var(--g1),var(--g3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.act{font-size:13px;font-weight:600;color:#fff}
 .item:active{opacity:.6}
 .banner{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:22px;margin:24px 0 14px;background:#222}
-.cust{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:14px;border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;font:600 14px Inter,sans-serif;cursor:pointer}
-.cust svg.s{width:18px;height:18px}
-.ov{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:flex-end;justify-content:center;z-index:30}
-.ov.on{display:flex}
-.pn{position:relative;width:100%;max-width:430px;background:#1c1c1c;border-radius:28px 28px 0 0;padding:28px 20px calc(20px + env(safe-area-inset-bottom,0px));max-height:88vh;overflow:auto}
-.pn h3{margin:0 0 4px;font-size:20px}
-.wrap{display:flex;flex-wrap:wrap;gap:10px}
-.sw{width:42px;height:42px;border-radius:50%;border:2px solid #1c1c1c;outline:2px solid transparent;cursor:pointer;padding:0}
-.sw.on{outline-color:#fff}
-.ch{padding:9px 14px;border-radius:12px;background:#2e2e2e;color:#fff;border:0;font:500 13px Inter,sans-serif;cursor:pointer}
-.acts{display:flex;gap:10px;margin-top:22px}
-.acts button{flex:1;border:0;border-radius:14px;padding:14px;font:600 14px Inter,sans-serif;cursor:pointer;color:#fff}
 .toast{position:fixed;left:50%;bottom:calc(30px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#fff;color:#111;padding:10px 16px;border-radius:14px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;max-width:90%;text-align:center;z-index:40}
 .toast.on{opacity:1}
 </style>
@@ -96,19 +84,10 @@ h1{margin:0;font-size:52px;line-height:.98;font-weight:600;letter-spacing:-.04em
       <div class="lbl">Email</div><div id="emails"></div>
       <div class="lbl">Social media</div><div id="socs"></div>
       <img class="banner" id="banner" alt="Banner">
-      <button class="cust" id="palBtn"><svg class="s" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="15.5" cy="10" r="1"/></svg>Customize card</button>
     </div>
   </div>
 </div>
 
-<div class="ov" id="ov"><div class="pn">
-  <h3>Customize</h3>
-  <div class="lbl">Background photo</div>
-  <div class="wrap"><button class="ch" id="upBtn">Upload photo</button><button class="ch" id="noImg">Remove photo</button></div>
-  <input type="file" id="upF" accept="image/*" hidden>
-  <div class="lbl">Accent color</div><div class="wrap" id="sw"></div>
-  <div class="acts"><button id="rst" style="background:#2e2e2e">Reset</button><button id="dn" style="background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3))">Done</button></div>
-</div></div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -142,6 +121,7 @@ const parts=D.name.split(" "),last=parts.pop();
 $("#name").innerHTML=esc(parts.join(" "))+"<br>"+esc(last);
 $("#sub").textContent=D.position+" · "+D.company;
 $("#nP").textContent=D.phones.length;$("#nE").textContent=D.emails.length;$("#nS").textContent=D.socials.length;
+$("#bg").src=D.bg;
 $("#banner").src=D.banner;
 const wa=D.socials.find(s=>s.type==="whatsapp");
 $("#qaPath").setAttribute("d",SOC.whatsapp.p);$("#qaChat").href=wa.url;$("#qaCall").href="tel:"+D.phones[0].value;
@@ -173,26 +153,6 @@ async function shareLink(){
 $("#goSave").onclick=$("#topSave").onclick=saveContact;
 $("#shareBtn").onclick=shareLink;
 
-/* customize: background photo + accent color */
-const G=[["Sunset","#ff9a5a","#ec6b8e","#9d9be8"],["Ocean","#38bdf8","#6366f1","#a78bfa"],["Mint","#34d399","#22d3ee","#60a5fa"],["Gold","#fde047","#f59e0b","#ea580c"],["Ruby","#fb7185","#e11d48","#9f1239"]];
-const DEFS={g:0,img:""};let S={...DEFS};
-try{Object.assign(S,JSON.parse(localStorage.getItem("cardStyle2")||"{}"))}catch(e){}
-function apply(){
-  const r=document.documentElement.style,g=G[S.g]||G[0];
-  r.setProperty("--g1",g[1]);r.setProperty("--g2",g[2]);r.setProperty("--g3",g[3]);
-  $("#bg").src=S.img||D.bg;
-  $("#sw").innerHTML=G.map((t,i)=>`<button class="sw${i===S.g?" on":""}" data-g="${i}" aria-label="${t[0]}" style="background:linear-gradient(135deg,${t[1]},${t[2]},${t[3]})"></button>`).join("");
-  try{localStorage.setItem("cardStyle2",JSON.stringify(S))}catch(e){try{localStorage.setItem("cardStyle2",JSON.stringify({...S,img:""}))}catch(_){}}
-}
-$("#palBtn").onclick=()=>$("#ov").classList.add("on");
-$("#dn").onclick=()=>$("#ov").classList.remove("on");
-$("#ov").onclick=e=>{if(e.target.id==="ov")$("#ov").classList.remove("on")};
-$("#sw").onclick=e=>{const i=e.target.dataset.g;if(i==null)return;S.g=+i;apply()};
-$("#upBtn").onclick=()=>$("#upF").click();
-$("#upF").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const k=Math.min(1,1000/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=i.width*k;c.height=i.height*k;c.getContext("2d").drawImage(i,0,0,c.width,c.height);S.img=c.toDataURL("image/jpeg",.82);apply()};i.src=r.result};r.readAsDataURL(f)};
-$("#noImg").onclick=()=>{S.img="";apply()};
-$("#rst").onclick=()=>{S={...DEFS};apply()};
-apply();
 </script>
 </body>
 </html>
