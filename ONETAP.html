@@ -1,158 +1,624 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Earl John Gomez – Onetap.ph</title>
-<meta name="theme-color" content="#cfcfcf">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<style>
-:root{--text:#fff;--muted:#bdbdbd;--line:rgba(255,255,255,.1);color-scheme:dark;box-sizing:border-box}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:radial-gradient(ellipse at 50% 0,#f4f4f4,#bdbdbd);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);display:flex;justify-content:center;min-height:100vh}
-.fx{position:fixed;top:0;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:0;overflow:hidden;background:#999}
-.fx img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(1) contrast(1.05);display:block}
-.fx::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(0,0,0,.25))}
-.bar{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 10px;display:flex;justify-content:space-between;align-items:center;z-index:10;color:#111}
-.bar h2{margin:0;font-size:17px;font-weight:600;letter-spacing:-.01em}
-.circ{width:44px;height:44px;border-radius:50%;border:0;background:rgba(40,40,40,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;display:grid;place-items:center;cursor:pointer}
-.blk{border:0;background:#0a0a0a;color:#fff;font:600 16px Inter,sans-serif;padding:13px 18px;border-radius:14px;cursor:pointer}
-svg.s{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.phone{position:relative;z-index:2;width:100%;max-width:430px}
-.spacer{height:calc(100vh - 560px);min-height:150px}
-.sheet{position:relative;margin:0 14px 28px;border-radius:30px;padding:26px 22px 24px;background:linear-gradient(180deg,rgba(60,60,60,.5),rgba(12,12,12,.86) 34%);backdrop-filter:blur(28px) saturate(1.2);-webkit-backdrop-filter:blur(28px) saturate(1.2);border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.35)}
-.sheet::before{content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);width:58px;height:5px;border-radius:3px;background:rgba(255,255,255,.85)}
-.nm{display:flex;justify-content:space-between;align-items:flex-end;margin-top:6px}
-h1{margin:0;font-size:52px;line-height:.98;font-weight:600;letter-spacing:-.04em}
-.qa{display:flex;gap:12px;padding-bottom:6px}
-.qa a{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;text-decoration:none}
-.glow{background:#111;box-shadow:0 0 22px rgba(255,255,255,.3);color:#fff}
-.wht{background:#fff;color:#000}
-.sub{margin:8px 0 0;color:var(--muted);font-size:17px}
-.bio{margin:14px 0 0;font-size:19px;line-height:1.3;letter-spacing:-.01em;color:#f0f0f0}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);margin:24px 0 18px}
-.stats b{display:block;font-size:30px;font-weight:600;letter-spacing:-.02em}
-.stats span{color:var(--muted);font-size:17px}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
-.chips a{padding:8px 14px;border-radius:20px;background:rgba(255,255,255,.12);color:#fff;text-decoration:none;font-size:14px}
-.go{display:block;width:100%;height:58px;border:1px solid rgba(255,255,255,.25);border-radius:16px;font:600 19px Inter,sans-serif;color:#fff;cursor:pointer;background:#111;text-shadow:0 1px 2px rgba(0,0,0,.2)}
-.go:active{transform:scale(.98)}
-.hint{display:flex;flex-direction:column;align-items:center;margin-top:16px;color:var(--muted);font-size:13px;gap:2px}
-.hint svg.s{width:20px;height:20px;animation:bob 1.4s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(4px)}}
-.all{margin-top:26px;padding-top:6px;border-top:1px solid var(--line)}
-.lbl{margin:22px 0 4px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.item{display:flex;align-items:center;gap:14px;padding:13px 0;color:#fff;text-decoration:none;position:relative}
-.item+.item::before{content:"";position:absolute;top:0;left:62px;right:0;height:1px;background:var(--line)}
-.ic{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;flex:none}
-.ic svg.f{width:22px;height:22px;fill:#fff}
-.mid{flex:1;min-width:0}
-.mid b{display:block;font-weight:500;font-size:16px}
-.mid small{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow:hidden;text-overflow:ellipsis}
-.act{font-size:13px;font-weight:600;color:#fff}
-.item:active{opacity:.6}
-.banner{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:22px;margin:24px 0 14px;background:#222}
-.toast{position:fixed;left:50%;bottom:calc(30px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#fff;color:#111;padding:10px 16px;border-radius:14px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;max-width:90%;text-align:center;z-index:40}
-.toast.on{opacity:1}
-</style>
-</head>
-<body>
-<div class="fx"><img id="bg" alt=""></div>
-<div class="bar">
-  <button class="circ" id="shareBtn" aria-label="Share"><svg class="s" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button>
-  <h2>Onetap.ph</h2>
-  <button class="blk" id="topSave">Save</button>
-</div>
-
-<div class="phone">
-  <div class="spacer"></div>
-  <div class="sheet">
-    <div class="nm">
-      <h1 id="name"></h1>
-      <div class="qa"><a class="glow" id="qaChat" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path id="qaPath"/></svg></a><a class="wht" id="qaCall" aria-label="Call"><svg class="s" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a></div>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Earl John Gomez – Onetap.ph</title>
+    <meta name="theme-color" content="#cfcfcf" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --text: #fff;
+        --muted: #bdbdbd;
+        --line: rgba(255, 255, 255, 0.1);
+        color-scheme: dark;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(ellipse at 50% 0, #f4f4f4, #bdbdbd);
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        color: var(--text);
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      .fx {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 430px;
+        z-index: 0;
+        overflow: hidden;
+        background: #999;
+      }
+      .fx img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        filter: grayscale(1) contrast(1.05);
+        display: block;
+      }
+      .fx::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.18),
+          rgba(0, 0, 0, 0.25)
+        );
+      }
+      .bar {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 430px;
+        padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        color: #111;
+      }
+      .bar h2 {
+        margin: 0;
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .circ {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 0;
+        background: rgba(40, 40, 40, 0.3);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+      }
+      .blk {
+        border: 0;
+        background: #0a0a0a;
+        color: #fff;
+        font:
+          600 16px Inter,
+          sans-serif;
+        padding: 13px 18px;
+        border-radius: 14px;
+        cursor: pointer;
+      }
+      svg.s {
+        width: 22px;
+        height: 22px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .phone {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 430px;
+      }
+      .spacer {
+        height: calc(100vh - 560px);
+        min-height: 150px;
+      }
+      .sheet {
+        position: relative;
+        margin: 0 14px 28px;
+        border-radius: 30px;
+        padding: 26px 22px 24px;
+        background: linear-gradient(
+          180deg,
+          rgba(60, 60, 60, 0.5),
+          rgba(12, 12, 12, 0.86) 34%
+        );
+        backdrop-filter: blur(28px) saturate(1.2);
+        -webkit-backdrop-filter: blur(28px) saturate(1.2);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+      .sheet::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 58px;
+        height: 5px;
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.85);
+      }
+      .nm {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 6px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 52px;
+        line-height: 0.98;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+      }
+      .qa {
+        display: flex;
+        gap: 12px;
+        padding-bottom: 6px;
+      }
+      .qa a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+      }
+      .glow {
+        background: #111;
+        box-shadow: 0 0 22px rgba(255, 255, 255, 0.3);
+        color: #fff;
+      }
+      .wht {
+        background: #fff;
+        color: #000;
+      }
+      .sub {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+      .bio {
+        margin: 14px 0 0;
+        font-size: 19px;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        color: #f0f0f0;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 24px 0 18px;
+      }
+      .stats b {
+        display: block;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .stats span {
+        color: var(--muted);
+        font-size: 17px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+      .chips a {
+        padding: 8px 14px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      .go {
+        display: block;
+        width: 100%;
+        height: 58px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 16px;
+        font:
+          600 19px Inter,
+          sans-serif;
+        color: #fff;
+        cursor: pointer;
+        background: #111;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+      .go:active {
+        transform: scale(0.98);
+      }
+      .hint {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 13px;
+        gap: 2px;
+      }
+      .hint svg.s {
+        width: 20px;
+        height: 20px;
+        animation: bob 1.4s ease-in-out infinite;
+      }
+      @keyframes bob {
+        50% {
+          transform: translateY(4px);
+        }
+      }
+      .all {
+        margin-top: 26px;
+        padding-top: 6px;
+        border-top: 1px solid var(--line);
+      }
+      .lbl {
+        margin: 22px 0 4px;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 13px 0;
+        color: #fff;
+        text-decoration: none;
+        position: relative;
+      }
+      .item + .item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 62px;
+        right: 0;
+        height: 1px;
+        background: var(--line);
+      }
+      .ic {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: grid;
+        place-items: center;
+        flex: none;
+      }
+      .ic svg.f {
+        width: 22px;
+        height: 22px;
+        fill: #fff;
+      }
+      .mid {
+        flex: 1;
+        min-width: 0;
+      }
+      .mid b {
+        display: block;
+        font-weight: 500;
+        font-size: 16px;
+      }
+      .mid small {
+        display: block;
+        color: var(--muted);
+        font-size: 15px;
+        margin-top: 2px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .act {
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+      }
+      .item:active {
+        opacity: 0.6;
+      }
+      .banner {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16/10;
+        object-fit: cover;
+        border-radius: 22px;
+        margin: 24px 0 14px;
+        background: #222;
+      }
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+        transform: translateX(-50%);
+        background: #fff;
+        color: #111;
+        padding: 10px 16px;
+        border-radius: 14px;
+        font-size: 14px;
+        opacity: 0;
+        transition: 0.25s;
+        pointer-events: none;
+        max-width: 90%;
+        text-align: center;
+        z-index: 40;
+      }
+      .toast.on {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fx"><img id="bg" alt="" /></div>
+    <div class="bar">
+      <button class="circ" id="shareBtn" aria-label="Share">
+        <svg class="s" viewBox="0 0 24 24">
+          <path
+            d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"
+          />
+        </svg>
+      </button>
+      <h2>Onetap.ph</h2>
+      <button class="blk" id="topSave">Save</button>
     </div>
-    <p class="sub" id="sub"></p>
-    <p class="bio">Let's connect! Tap any button below to reach me.</p>
-    <div class="stats"><div><b id="nP"></b><span>Phone</span></div><div><b id="nE"></b><span>Emails</span></div><div><b id="nS"></b><span>Socials</span></div></div>
-    <div class="chips" id="chips"></div>
-    <button class="go" id="goSave">Save Contact</button>
-    <div class="hint"><span>Scroll up for all contact info</span><svg class="s" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
 
-    <div class="all">
-      <div class="lbl">Phone</div><div id="phones"></div>
-      <div class="lbl">Email</div><div id="emails"></div>
-      <div class="lbl">Social media</div><div id="socs"></div>
-      <img class="banner" id="banner" alt="Banner">
+    <div class="phone">
+      <div class="spacer"></div>
+      <div class="sheet">
+        <div class="nm">
+          <h1 id="name"></h1>
+          <div class="qa">
+            <a
+              class="glow"
+              id="qaChat"
+              target="_blank"
+              rel="noopener"
+              aria-label="WhatsApp"
+              ><svg viewBox="0 0 24 24" width="24" height="24" fill="#fff">
+                <path id="qaPath" /></svg></a
+            ><a class="wht" id="qaCall" aria-label="Call"
+              ><svg class="s" viewBox="0 0 24 24">
+                <path
+                  d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"
+                /></svg
+            ></a>
+          </div>
+        </div>
+        <p class="sub" id="sub"></p>
+        <p class="bio">Let's connect! Tap any button below to reach me.</p>
+        <div class="stats">
+          <div><b id="nP"></b><span>Phone</span></div>
+          <div><b id="nE"></b><span>Emails</span></div>
+          <div><b id="nS"></b><span>Socials</span></div>
+        </div>
+        <div class="chips" id="chips"></div>
+        <button class="go" id="goSave">Save Contact</button>
+        <div class="hint">
+          <span>Scroll up for all contact info</span
+          ><svg class="s" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg>
+        </div>
+
+        <div class="all">
+          <div class="lbl">Phone</div>
+          <div id="phones"></div>
+          <div class="lbl">Email</div>
+          <div id="emails"></div>
+          <div class="lbl">Social media</div>
+          <div id="socs"></div>
+          <img class="banner" id="banner" alt="Banner" />
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="toast" id="toast"></div>
+    <div class="toast" id="toast"></div>
 
-<script>
-const $=s=>document.querySelector(s);
-const svgPh=`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'><defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#d6d6d6'/><stop offset='1' stop-color='#6e6e6e'/></linearGradient></defs><rect width='400' height='800' fill='url(#g)'/><circle cx='200' cy='250' r='78' fill='#3a3a3a'/><path d='M40 520c0-110 70-170 160-170s160 60 160 170v280H40z' fill='#3a3a3a'/></svg>`;
-const PH="data:image/svg+xml;utf8,"+encodeURIComponent(svgPh);
-const BN="data:image/svg+xml;utf8,"+encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'><rect width='160' height='100' fill='#262626'/><text x='80' y='56' font-size='12' text-anchor='middle' fill='#8a8a8a' font-family='sans-serif'>Your image here</text></svg>");
-const D={
-  name:"Earl John Gomez",company:"Onetap.ph",position:"Owner",bg:PH,banner:BN,
-  phones:[{label:"Mobile / WhatsApp",value:"+639624238760"}],
-  emails:[{label:"Gmail",value:"earljohngomez66@gmail.com"},{label:"Onetap",value:"onetaplpcph@gmail.com"}],
-  socials:[
-    {type:"facebook",sub:"itsm3earljohn",url:"https://www.facebook.com/itsm3earljohn/"},
-    {type:"fbpage",sub:"Onetap.ph Page",url:"https://www.facebook.com/onetap.nfc.ph"},
-    {type:"instagram",sub:"@onetap_earl",url:"https://www.instagram.com/onetap_earl/"},
-    {type:"whatsapp",sub:"+63 962 423 8760",url:"https://wa.me/639624238760"},
-    {type:"tiktok",sub:"@lifeofear1",url:"https://www.tiktok.com/@lifeofear1"}
-  ]
-};
-const SOC={
-  whatsapp:{n:"WhatsApp",p:"M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.3z"},
-  facebook:{n:"Facebook",p:"M13.500 22v-8.200h2.800l.5-3.300h-3.300V8.400c0-.9.400-1.700 1.800-1.700h1.600V3.800S15.600 3.600 14.300 3.600c-2.800 0-4.400 1.600-4.400 4.500v2.400H7.100v3.300h2.800V22z"},
-  instagram:{n:"Instagram",p:"M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.500a4.500 4.500 0 1 1 0 9 4.500 4.500 0 0 1 0-9zm0 2a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5zm5.300-3.100a1.100 1.100 0 1 1 0 2.200 1.100 1.100 0 0 1 0-2.200z"},
-  tiktok:{n:"TikTok",p:"M16.600 2h-3.200v13.200a2.800 2.800 0 1 1-2-2.700V9.200a6 6 0 1 0 5.200 5.900V8.500a7.500 7.500 0 0 0 4.400 1.400V6.700A4.400 4.400 0 0 1 16.600 2z"}
-};
-SOC.fbpage={...SOC.facebook,n:"Facebook Page"};
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("on"),2600)}
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const svgPh = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'><defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#d6d6d6'/><stop offset='1' stop-color='#6e6e6e'/></linearGradient></defs><rect width='400' height='800' fill='url(#g)'/><circle cx='200' cy='250' r='78' fill='#3a3a3a'/><path d='M40 520c0-110 70-170 160-170s160 60 160 170v280H40z' fill='#3a3a3a'/></svg>`;
+      const PH = "data:image/svg+xml;utf8," + encodeURIComponent(svgPh);
+      const BN =
+        "data:image/svg+xml;utf8," +
+        encodeURIComponent(
+          "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'><rect width='160' height='100' fill='#262626'/><text x='80' y='56' font-size='12' text-anchor='middle' fill='#8a8a8a' font-family='sans-serif'>Your image here</text></svg>",
+        );
+      const D = {
+        name: "Earl John Gomez",
+        company: "Onetap.ph",
+        position: "Owner",
+        bg: PH,
+        banner: BN,
+        phones: [{ label: "Mobile / WhatsApp", value: "+639624238760" }],
+        emails: [
+          { label: "Gmail", value: "earljohngomez66@gmail.com" },
+          { label: "Onetap", value: "onetaplpcph@gmail.com" },
+        ],
+        socials: [
+          {
+            type: "facebook",
+            sub: "itsm3earljohn",
+            url: "https://www.facebook.com/itsm3earljohn/",
+          },
+          {
+            type: "fbpage",
+            sub: "Onetap.ph Page",
+            url: "https://www.facebook.com/onetap.nfc.ph",
+          },
+          {
+            type: "instagram",
+            sub: "@onetap_earl",
+            url: "https://www.instagram.com/onetap_earl/",
+          },
+          {
+            type: "whatsapp",
+            sub: "+63 962 423 8760",
+            url: "https://wa.me/639624238760",
+          },
+          {
+            type: "tiktok",
+            sub: "@lifeofear1",
+            url: "https://www.tiktok.com/@lifeofear1",
+          },
+        ],
+      };
+      const SOC = {
+        whatsapp: {
+          n: "WhatsApp",
+          p: "M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.3z",
+        },
+        facebook: {
+          n: "Facebook",
+          p: "M13.500 22v-8.200h2.800l.5-3.300h-3.300V8.400c0-.9.400-1.700 1.800-1.700h1.600V3.800S15.600 3.600 14.300 3.600c-2.800 0-4.400 1.600-4.400 4.500v2.400H7.100v3.300h2.800V22z",
+        },
+        instagram: {
+          n: "Instagram",
+          p: "M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.500a4.500 4.500 0 1 1 0 9 4.500 4.500 0 0 1 0-9zm0 2a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5zm5.300-3.100a1.100 1.100 0 1 1 0 2.200 1.100 1.100 0 0 1 0-2.200z",
+        },
+        tiktok: {
+          n: "TikTok",
+          p: "M16.600 2h-3.200v13.200a2.800 2.800 0 1 1-2-2.700V9.200a6 6 0 1 0 5.200 5.900V8.500a7.500 7.500 0 0 0 4.400 1.400V6.700A4.400 4.400 0 0 1 16.600 2z",
+        },
+      };
+      SOC.fbpage = { ...SOC.facebook, n: "Facebook Page" };
+      const esc = (s) =>
+        String(s).replace(
+          /[&<>"]/g,
+          (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c],
+        );
+      function toast(t) {
+        const e = $("#toast");
+        e.textContent = t;
+        e.classList.add("on");
+        clearTimeout(toast.t);
+        toast.t = setTimeout(() => e.classList.remove("on"), 2600);
+      }
 
-const parts=D.name.split(" "),last=parts.pop();
-$("#name").innerHTML=esc(parts.join(" "))+"<br>"+esc(last);
-$("#sub").textContent=D.position+" · "+D.company;
-$("#nP").textContent=D.phones.length;$("#nE").textContent=D.emails.length;$("#nS").textContent=D.socials.length;
-$("#bg").src=D.bg;
-$("#banner").src=D.banner;
-const wa=D.socials.find(s=>s.type==="whatsapp");
-$("#qaPath").setAttribute("d",SOC.whatsapp.p);$("#qaChat").href=wa.url;$("#qaCall").href="tel:"+D.phones[0].value;
-$("#chips").innerHTML=D.socials.filter(s=>["instagram","tiktok","fbpage"].includes(s.type)).map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.sub)}</a>`).join("");
-const phoneSvg='<svg class="s" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>';
-const mailSvg='<svg class="s" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>';
-$("#phones").innerHTML=D.phones.map(p=>`<a class="item" href="tel:${esc(p.value)}"><span class="ic">${phoneSvg}</span><span class="mid"><b>${esc(p.label)}</b><small>${esc(p.value)}</small></span><span class="act">Call</span></a>`).join("");
-$("#emails").innerHTML=D.emails.map(p=>`<a class="item" href="mailto:${esc(p.value)}"><span class="ic">${mailSvg}</span><span class="mid"><b>${esc(p.label)}</b><small>${esc(p.value)}</small></span><span class="act">Send</span></a>`).join("");
-$("#socs").innerHTML=D.socials.map(s=>`<a class="item" href="${esc(s.url)}" target="_blank" rel="noopener"><span class="ic"><svg class="f" viewBox="0 0 24 24"><path d="${SOC[s.type].p}"/></svg></span><span class="mid"><b>${SOC[s.type].n}</b><small>${esc(s.sub)}</small></span><span class="act">Open</span></a>`).join("");
+      const parts = D.name.split(" "),
+        last = parts.pop();
+      $("#name").innerHTML = esc(parts.join(" ")) + "<br>" + esc(last);
+      $("#sub").textContent = D.position + " · " + D.company;
+      $("#nP").textContent = D.phones.length;
+      $("#nE").textContent = D.emails.length;
+      $("#nS").textContent = D.socials.length;
+      $("#bg").src = D.bg;
+      $("#banner").src = D.banner;
+      const wa = D.socials.find((s) => s.type === "whatsapp");
+      $("#qaPath").setAttribute("d", SOC.whatsapp.p);
+      $("#qaChat").href = wa.url;
+      $("#qaCall").href = "tel:" + D.phones[0].value;
+      $("#chips").innerHTML = D.socials
+        .filter((s) => ["instagram", "tiktok", "fbpage"].includes(s.type))
+        .map(
+          (s) =>
+            `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.sub)}</a>`,
+        )
+        .join("");
+      const phoneSvg =
+        '<svg class="s" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>';
+      const mailSvg =
+        '<svg class="s" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>';
+      $("#phones").innerHTML = D.phones
+        .map(
+          (p) =>
+            `<a class="item" href="tel:${esc(p.value)}"><span class="ic">${phoneSvg}</span><span class="mid"><b>${esc(p.label)}</b><small>${esc(p.value)}</small></span><span class="act">Call</span></a>`,
+        )
+        .join("");
+      $("#emails").innerHTML = D.emails
+        .map(
+          (p) =>
+            `<a class="item" href="mailto:${esc(p.value)}"><span class="ic">${mailSvg}</span><span class="mid"><b>${esc(p.label)}</b><small>${esc(p.value)}</small></span><span class="act">Send</span></a>`,
+        )
+        .join("");
+      $("#socs").innerHTML = D.socials
+        .map(
+          (s) =>
+            `<a class="item" href="${esc(s.url)}" target="_blank" rel="noopener"><span class="ic"><svg class="f" viewBox="0 0 24 24"><path d="${SOC[s.type].p}"/></svg></span><span class="mid"><b>${SOC[s.type].n}</b><small>${esc(s.sub)}</small></span><span class="act">Open</span></a>`,
+        )
+        .join("");
 
-function vcard(){
-  const n=D.name.trim().split(/\s+/),l=n.length>1?n.pop():"",f=n.join(" ");
-  const v=["BEGIN:VCARD","VERSION:3.0",`N:${l};${f};;;`,`FN:${D.name}`,`ORG:${D.company}`,`TITLE:${D.position}`];
-  D.phones.forEach(p=>v.push(`TEL;TYPE=CELL:${p.value}`));
-  D.emails.forEach(p=>v.push(`EMAIL;TYPE=INTERNET:${p.value}`));
-  D.socials.forEach(s=>v.push(`URL;TYPE=${SOC[s.type].n}:${s.url}`));
-  v.push("END:VCARD");return v.join("\r\n");
-}
-async function saveContact(){
-  const text=vcard(),fn=D.name.replace(/\s+/g,"_")+".vcf";
-  const file=new File([text],fn,{type:"text/vcard"});
-  try{ if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:D.name});return} }catch(e){if(e.name==="AbortError")return}
-  try{const a=document.createElement("a");a.href=URL.createObjectURL(file);a.download=fn;document.body.appendChild(a);a.click();a.remove();toast("Opening… allow it to add to your contacts");return}catch(e){}
-  try{await navigator.clipboard.writeText(text);toast("Contact copied")}catch(e){toast("Save not supported here")}
-}
-async function shareLink(){
-  try{ if(navigator.share){await navigator.share({title:D.name,url:location.href});return} await navigator.clipboard.writeText(location.href);toast("Link copied") }catch(e){}
-}
-$("#goSave").onclick=$("#topSave").onclick=saveContact;
-$("#shareBtn").onclick=shareLink;
-
-</script>
-</body>
+      function vcard() {
+        const n = D.name.trim().split(/\s+/),
+          l = n.length > 1 ? n.pop() : "",
+          f = n.join(" ");
+        const v = [
+          "BEGIN:VCARD",
+          "VERSION:3.0",
+          `N:${l};${f};;;`,
+          `FN:${D.name}`,
+          `ORG:${D.company}`,
+          `TITLE:${D.position}`,
+        ];
+        D.phones.forEach((p) => v.push(`TEL;TYPE=CELL:${p.value}`));
+        D.emails.forEach((p) => v.push(`EMAIL;TYPE=INTERNET:${p.value}`));
+        D.socials.forEach((s) => v.push(`URL;TYPE=${SOC[s.type].n}:${s.url}`));
+        v.push("END:VCARD");
+        return v.join("\r\n");
+      }
+      async function saveContact() {
+        const text = vcard(),
+          fn = D.name.replace(/\s+/g, "_") + ".vcf";
+        const file = new File([text], fn, { type: "text/vcard" });
+        try {
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            await navigator.share({ files: [file], title: D.name });
+            return;
+          }
+        } catch (e) {
+          if (e.name === "AbortError") return;
+        }
+        try {
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(file);
+          a.download = fn;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          toast("Opening… allow it to add to your contacts");
+          return;
+        } catch (e) {}
+        try {
+          await navigator.clipboard.writeText(text);
+          toast("Contact copied");
+        } catch (e) {
+          toast("Save not supported here");
+        }
+      }
+      async function shareLink() {
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: D.name, url: location.href });
+            return;
+          }
+          await navigator.clipboard.writeText(location.href);
+          toast("Link copied");
+        } catch (e) {}
+      }
+      $("#goSave").onclick = $("#topSave").onclick = saveContact;
+      $("#shareBtn").onclick = shareLink;
+    </script>
+  </body>
 </html>

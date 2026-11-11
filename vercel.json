@@ -1,8 +1,11 @@
 {
-  "rewrites": [
+  "headers": [
     {
-      "source": "/",
-      "destination": "/ONETAP.html"
+      "source": "/(.*)\\.vcf",
+      "headers": [
+        { "key": "Content-Type", "value": "text/vcard; charset=utf-8" },
+        { "key": "Content-Disposition", "value": "inline; filename=\"Earl_John_Gomez.vcf\"" }
+      ]
     }
   ]
 }
